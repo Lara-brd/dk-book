@@ -1,0 +1,176 @@
+:host{
+  display: block;
+  padding:30px;
+}
+
+h2{
+  font-size:1.5rem;
+  color:var(--mat-sys-primary);
+  margin-top: 50px;
+
+}
+
+.test{
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 2.5rem;
+}
+
+.ligatures-shell{
+  display: flex;
+  flex-direction: column;
+  gap:25px;
+
+  .lig-examples{
+    display: flex;
+    align-items: center;
+    gap:25px;
+  }
+
+
+}
+
+
+.box{
+  margin:10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap:25px;
+  background-color: color-mix(in srgb, var(--mat-sys-primary), transparent 80%);
+  padding:20px;
+  border-radius: 8px;
+  p{
+    margin:0;
+  }
+}
+
+
+.box-awesome{
+  mat-icon{
+    font-size: 24px;
+    width: 27px;
+    height: 24px;
+
+  }
+}
+
+
+
+
+.sets-wrapp{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.symbol{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  p{
+    margin:0;
+  }
+
+  .custom-styles{
+
+      .material-symbols-outlined {
+      color:orange;
+      font-variation-settings:
+
+        'FILL' 0,
+
+        'wght' 800,
+
+        'GRAD' 30,
+
+        'opsz' 30,
+
+    }
+  }
+
+}
+
+
+
+/* Container to prevent the layout from shifting during animation */
+
+.icon-box {
+
+  width: 48px;
+
+  height: 48px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin: 50px 75px;
+
+  /* overflow: visible is good to allow the scaled icon to bleed out */
+
+  overflow: visible;
+
+}
+
+
+
+/* Animated Element */
+
+.fill-pulse {
+
+  font-family: 'Material Symbols Outlined'; /* Ensure the font is targeted */
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  display: block;
+
+  transform-origin: center center;
+
+  /* will-change helps the browser optimize the animation performance */
+
+  will-change: transform, font-variation-settings, color;
+
+  animation: fillPulse 2500ms ease-in-out infinite;
+
+}
+
+
+
+@keyframes fillPulse {
+
+  0%, 100% {
+
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+
+    transform: scale(1.25);
+
+    color: pink;
+
+  }
+
+  50% {
+
+    /* We transition to a filled, bold, and larger optical size */
+
+    font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;
+
+    transform: scale(2.25);
+
+    color: rgb(88, 3, 3);
+
+  }
+
+}
+
+

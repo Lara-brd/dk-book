@@ -1,0 +1,132 @@
+
+<h3>****mat-icon works with both ligatures and classes; each is used with a different syntax. </h3>
+
+<h2>Icons width ligadures</h2>
+
+<div class="ligatures-shell">
+  <div class="lig-examples">
+    <mat-icon>home</mat-icon><p>The icon appears because the font converts text like “home” or “search” into a glyph (an image).</p>
+  </div>
+
+  <div class="lig-content">
+    <p>FontSet → is typically the name of the CSS class that activates that specific icon font. </p>
+    <p>Ligature → in this case home (the text that the font converts into an icon), provided that the font supports ligatures.  </p>
+  </div>
+</div>
+
+
+
+<h2>Material icons set </h2>
+
+<p>Available styles:</p>
+
+<div class="sets-wrapp box">
+
+  <div class="box">
+    Fill (by deffault)
+    <mat-icon>home</mat-icon>
+  </div>
+
+  <div class="box">
+    Outlined
+    <mat-icon class="material-icons-outlined">
+      home
+    </mat-icon>
+  </div>
+
+  <div class="box">
+    Round
+    <mat-icon class="material-icons-round test">
+      home
+    </mat-icon>
+  </div>
+
+  <div class="box">
+    Sharp
+    <mat-icon class="material-icons-sharp">
+      home
+    </mat-icon>
+  </div>
+
+  <div class="box">
+    Two-tone
+    <span class="material-icons-two-tone">
+      home
+    </span>
+  </div>
+</div>
+
+
+<h2>Material Symbols</h2>
+
+<p>With Material Icons, you change the style by using a different for family or class. With Material Symbols, you can change the look of the icon set using CSS. </p>
+<p>In Material Symbols, your set will be the corresponding CSS class. For example</p>
+
+<p>* material-symbols-outlined</p>
+<p>* material-symbols-rounded</p>
+<p>* material-symbols-sharp</p>
+
+<p>Example of customization width material symbols: </p>
+
+<div class="box symbol">
+
+  <mat-icon class="material-symbols-outlined test">
+    star_rate
+  </mat-icon>
+
+  <span class="test"> → </span>
+
+  <div class="custom-styles">
+    <mat-icon class="material-symbols-outlined test">
+      star_rate
+    </mat-icon>
+
+  </div>
+
+</div>
+
+
+<h2>Animating Material Symbols via Variable Axes</h2>
+<div class="box">
+
+  <span class="icon-box">
+    <mat-icon fontSet="material-symbols-outlined" class="fill-pulse">
+      favorite
+    </mat-icon>
+  </span>
+
+</div>
+
+
+
+<h2>Using CSS class </h2><p>Font awesome for example</p>
+<div class="box box-awesome">
+
+<mat-icon fontSet="fa-solid" fontIcon="fa-trophy"></mat-icon>
+<mat-icon fontSet="fa-duotone" fontIcon="fa-trophy"></mat-icon>
+<mat-icon fontSet="fa-duotone" fontIcon="fa-mug-hot"></mat-icon>
+<mat-icon fontSet="fa-thin" fontIcon="fa-mug-hot"></mat-icon>
+
+
+</div>
+
+
+
+
+<h2>My svg</h2>
+<p>Icons files in assets</p>
+<p>In Constants folder files → constants.ts and initialize-icons.ts</p>
+<p>In Core folder → icon.service.ts u</p>
+<p>In models folder → icon.model.ts</p>
+<p>Call initialize icons from app.config.ts </p>
+<p>Call service in app.ts</p>
+<p>Add icon file in assets/icons width the same name in models</p>
+<p>Now we can use the icon</p>
+
+<div class="box">
+  <mat-icon svgIcon="home"></mat-icon>
+</div>
+
+
+
+
