@@ -1,0 +1,106 @@
+<div class="dashboard-header-container">
+  <div class="dashboard-header-content">
+    <h1><ng-content select="header"></ng-content></h1>
+    <div>
+      <ng-content select="body"></ng-content>
+    </div>
+  </div>
+
+  <div class="header-actions">
+    <button mat-icon-button [matMenuTriggerFor]="person">
+      <mat-icon svgIcon="person"></mat-icon>
+    </button>
+    
+    <mat-menu #person="matMenu">
+      <button mat-menu-item>
+        <mat-icon svgIcon="person"></mat-icon>
+        <span>My details</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon svgIcon="email"></mat-icon>
+        <span>daniel.fairbanks@fairbanks.com</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon svgIcon="phone"></mat-icon>
+        <span>01234 445009</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>
+
+<h4>Nested menu</h4>
+<button mat-icon-button [matMenuTriggerFor]="person_nested">
+  <mat-icon svgIcon="person"></mat-icon>
+</button>
+
+<mat-menu #person_nested="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="resources">Resources</button>
+  <button mat-menu-item [matMenuTriggerFor]="accounts">Accounts</button>
+</mat-menu>
+
+<mat-menu #resources="matMenu">
+  <button mat-menu-item>Sales</button>
+  <button mat-menu-item>Marketing</button>
+</mat-menu>
+
+<mat-menu #accounts="matMenu">
+  <button mat-menu-item>Billing</button>
+  <button mat-menu-item>Creditors</button>
+  <button mat-menu-item>Finance control</button>
+  <button mat-menu-item>Sales</button>
+</mat-menu>
+
+
+
+
+<h4>Lazy Rendering</h4>
+
+<button mat-icon-button [matMenuTriggerFor]="person"> 
+      <mat-icon svgIcon="person"></mat-icon> 
+</button> 
+
+
+<mat-menu #person="matMenu"> 
+    <ng-template matMenuContent>
+
+      <button mat-menu-item> 
+      	<mat-icon svgIcon="person"/> 
+   	    <span>My details</span> 
+      </button> 
+
+      <button mat-menu-item> 
+        <mat-icon svgIcon="email"/> 
+        <span>daniel.fairbanks@fairbanks.com</span> 
+      </button> 
+
+    </ng-template> 
+
+</mat-menu> 
+
+
+
+
+<h4>Passing in data </h4>
+
+<button 
+   mat-icon-button 
+   [matMenuTriggerFor]="person" 
+   [matMenuTriggerData]="{email:'daniel.fairbanks@fairbanks.com'}"> 
+   <mat-icon svgIcon="person"></mat-icon> 
+
+</button> 
+
+<mat-menu #person="matMenu"> 
+   <ng-template matMenuContent let-email="email"> 
+     <button mat-menu-item> 
+       <mat-icon svgIcon="person" /> 
+       <span>Email</span> 
+     </button> 
+     <button mat-menu-item> 
+       <mat-icon svgIcon="email" /> 
+        <span>{{email}}</span> 
+     </button> 
+  </ng-template> 
+</mat-menu> 
+
+

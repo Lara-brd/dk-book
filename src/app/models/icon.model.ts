@@ -59,6 +59,18 @@ export const ICONS = {
 
   save: 'save',
 
+  person: 'person',
+
+  email:'email',
+
+  phone:'phone',
+
+  add:'add',
+
+  edit:'edit',
+
+  delete:'delete'
+
 } as const satisfies Record<string, string>;
 
 

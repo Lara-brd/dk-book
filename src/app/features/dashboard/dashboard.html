@@ -1,1 +1,40 @@
-<p>dashboard works!</p>
+
+
+<h4>Context menu</h4>
+
+<div class="dashboard-header" [matContextMenuTriggerFor]="contextMenu"> 
+
+  <app-dashboard-header>
+    <header>Portfolio Dashboard</header>
+    <body>Accounting performance data</body>
+  </app-dashboard-header>
+
+  <!-- <button class="right-click-area">
+      <mat-icon svgIcon="person"/> 
+      Right click here
+  </button> -->
+
+  <mat-menu #contextMenu> 
+
+    <button mat-menu-item> 
+      <mat-icon svgIcon="add"/> 
+      <span>Add</span> 
+    </button> 
+
+    <button mat-menu-item> 
+      <mat-icon svgIcon="edit"/> 
+      <span>Edit</span> 
+    </button> 
+
+    <button mat-menu-item> 
+      <mat-icon svgIcon="delete"/> 
+      <span>Delete</span> 
+    </button> 
+
+  </mat-menu> 
+
+</div> 
+
+
+
+
