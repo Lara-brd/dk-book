@@ -52,6 +52,10 @@ body {
 }
 
 
+// Fondo del menu para resaltar opciones
+.menu-backdrop{
+  background-color: color-mix(in srgb, var(--mat-sys-background), transparent 10%);
+}
 
 /*
 Variable CSSDescripciónvar(--mat-sys-primary)El cian vibrante principal

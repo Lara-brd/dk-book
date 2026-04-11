@@ -10,7 +10,7 @@
     <button mat-icon-button [matMenuTriggerFor]="person">
       <mat-icon svgIcon="person"></mat-icon>
     </button>
-    
+
     <mat-menu #person="matMenu">
       <button mat-menu-item>
         <mat-icon svgIcon="person"></mat-icon>
@@ -55,52 +55,88 @@
 
 <h4>Lazy Rendering</h4>
 
-<button mat-icon-button [matMenuTriggerFor]="person"> 
-      <mat-icon svgIcon="person"></mat-icon> 
-</button> 
+<button mat-icon-button [matMenuTriggerFor]="person">
+      <mat-icon svgIcon="person"></mat-icon>
+</button>
 
 
-<mat-menu #person="matMenu"> 
+<mat-menu #person="matMenu">
     <ng-template matMenuContent>
 
-      <button mat-menu-item> 
-      	<mat-icon svgIcon="person"/> 
-   	    <span>My details</span> 
-      </button> 
+      <button mat-menu-item>
+      	<mat-icon svgIcon="person"/>
+   	    <span>My details</span>
+      </button>
 
-      <button mat-menu-item> 
-        <mat-icon svgIcon="email"/> 
-        <span>daniel.fairbanks@fairbanks.com</span> 
-      </button> 
+      <button mat-menu-item>
+        <mat-icon svgIcon="email"/>
+        <span>daniel.fairbanks@fairbanks.com</span>
+      </button>
 
-    </ng-template> 
+    </ng-template>
 
-</mat-menu> 
+</mat-menu>
 
 
 
 
 <h4>Passing in data </h4>
 
-<button 
-   mat-icon-button 
-   [matMenuTriggerFor]="person" 
-   [matMenuTriggerData]="{email:'daniel.fairbanks@fairbanks.com'}"> 
-   <mat-icon svgIcon="person"></mat-icon> 
+<button
+   mat-icon-button
+   [matMenuTriggerFor]="person"
+   [matMenuTriggerData]="{email:'daniel.fairbanks@fairbanks.com'}">
+   <mat-icon svgIcon="person"></mat-icon>
 
-</button> 
+</button>
 
-<mat-menu #person="matMenu"> 
-   <ng-template matMenuContent let-email="email"> 
-     <button mat-menu-item> 
-       <mat-icon svgIcon="person" /> 
-       <span>Email</span> 
-     </button> 
-     <button mat-menu-item> 
-       <mat-icon svgIcon="email" /> 
-        <span>{{email}}</span> 
-     </button> 
-  </ng-template> 
-</mat-menu> 
+<mat-menu #person="matMenu">
+   <ng-template matMenuContent let-email="email">
+     <button mat-menu-item>
+       <mat-icon svgIcon="person" />
+       <span>Email</span>
+     </button>
+     <button mat-menu-item>
+       <mat-icon svgIcon="email" />
+        <span>{{email}}</span>
+     </button>
+  </ng-template>
+</mat-menu>
 
 
+
+<h4>Default Options</h4>
+<div class="demo-header">
+  <button mat-raised-button [matMenuTriggerFor]="menu">
+    Open menu
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>edit</mat-icon>
+      <span>Edit</span>
+    </button>
+
+    <button mat-menu-item>
+      <mat-icon>content_copy</mat-icon>
+      <span>Copy</span>
+    </button>
+
+    <button mat-menu-item>
+      <mat-icon>delete</mat-icon>
+      <span>Delete</span>
+    </button>
+  </mat-menu>
+</div>
+
+
+<!--
+ Reuitlizando constante
+ <mat-menu
+  #menu="matMenu"
+  class="custom-menu"
+  [overlapTrigger]="menuConfig.overlapTrigger"
+  [xPosition]="menuConfig.xPosition"
+  [yPosition]="menuConfig.yPosition"
+  [hasBackdrop]="menuConfig.hasBackdrop"
+> -->
