@@ -1,0 +1,149 @@
+:host{
+  display: block;
+  padding:16px;
+}
+
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+
+  .header-image {
+    background-image: url("../../../../public/assets/icons/trending-up.svg");
+    background-size: cover;
+    height: 25px;
+    width: 50px;
+    border-radius: 0;
+  }
+
+  .summary-card {
+    border-left: 4px solid #8b32b9;
+
+    mat-card-content {
+      padding: 15px;
+    }
+
+    mat-card-header {
+      font-size: 14px;
+      color: #1a3a52;
+      font-weight: 500;
+    }
+
+    .card-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a3a52;
+      margin-bottom: 4px;
+
+      &.positive {
+        color: #22c55e;
+      }
+    }
+
+    mat-card-subtitle {
+      font-size: 12px;
+      color: #6b7280;
+
+      &.positive {
+        color: #22c55e;
+      }
+    }
+  }
+}
+
+
+
+
+
+h2 {
+  margin-bottom: 24px;
+  color: var(--mat-sys-primary);
+}
+
+h3 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+p {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+mat-chip-set,
+mat-chip-listbox,
+mat-chip-grid {
+  display: block;
+  margin-bottom: 12px;
+}
+
+mat-chip,
+mat-chip-option,
+mat-chip-row {
+  margin: 6px;
+}
+
+.status-available {
+  background-color: color-mix(in srgb, green 18%, transparent 82%);
+}
+
+.status-service {
+  background-color: color-mix(in srgb, orange 18%, transparent 82%);
+}
+
+.status-fuel {
+  background-color: color-mix(in srgb, red 18%, transparent 82%);
+}
+
+mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+
+
+.chips-shell{
+  padding:32px;
+}
+
+.chip-example{
+  margin:32px 16px;
+}
+
+.chips-title{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+// HOVER
+// ::ng-deep .mat-mdc-chip .mat-ripple.mat-mdc-chip-ripple{
+//   background-color: #F5557B!important;
+
+// }
+
+:host ::ng-deep {
+  mat-chip.vehicle-chip.mdc-evolution-chip {
+    box-shadow: none;
+  }
+
+
+  mat-chip.chip-sedan.mdc-evolution-chip {
+    background-color: #f5557b;
+  }
+
+  mat-chip.chip-pickup.mdc-evolution-chip {
+    background-color: #e39220;
+  }
+
+  mat-chip.chip-electric.mdc-evolution-chip {
+    background-color: #005eb6;
+  }
+}
+
+
+
+
+
+

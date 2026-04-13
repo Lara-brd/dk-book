@@ -50,29 +50,26 @@ Eso en Angular viene muy bien para @Input(), signals, configs, servicios o mapeo
 icon = input<Icons>('home');
 
 **/
-
 export const ICONS = {
-
+  car: 'car',
+  truck: 'truck',
+  electric: 'electric',
+  warning: 'warning',
+  check: 'check',
+  fuel: 'fuel',
+  add: 'add',
+  edit: 'edit',
   logo: 'logo',
-
-  home: 'home',
-
+  email: 'email',
+  phone: 'phone',
   save: 'save',
-
+  cancel: 'cancel',
+  location: 'location',
+  delete: 'delete',
   person: 'person',
-
-  email:'email',
-
-  phone:'phone',
-
-  add:'add',
-
-  edit:'edit',
-
-  delete:'delete'
-
+  more_horiz: 'more-horiz',
+  settings: 'settings',
+  help: 'help',
 } as const satisfies Record<string, string>;
 
-
-
- export type icons = (typeof ICONS)[keyof typeof ICONS];
+export type icons = (typeof ICONS)[keyof typeof ICONS];

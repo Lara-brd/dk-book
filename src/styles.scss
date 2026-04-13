@@ -62,3 +62,14 @@ Variable CSSDescripciónvar(--mat-sys-primary)El cian vibrante principal
 .var(--mat-sys-primary-container)El cian suave/oscuro (ideal para fondos de botones o toolbars)
 .var(--mat-sys-on-primary-container)El color de texto que mejor contrasta con el suave.
 */
+
+
+body .mat-mdc-standard-chip .mdc-evolution-chip__text-label{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+}
+
+
+

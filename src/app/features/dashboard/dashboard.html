@@ -2,7 +2,7 @@
 
 <h4>Context menu</h4>
 
-<div class="dashboard-header" [matContextMenuTriggerFor]="contextMenu"> 
+<div class="dashboard-header" [matContextMenuTriggerFor]="contextMenu">
 
   <app-dashboard-header>
     <header>Portfolio Dashboard</header>
@@ -10,30 +10,33 @@
   </app-dashboard-header>
 
   <!-- <button class="right-click-area">
-      <mat-icon svgIcon="person"/> 
+      <mat-icon svgIcon="person"/>
       Right click here
   </button> -->
 
-  <mat-menu #contextMenu> 
+  <mat-menu #contextMenu>
 
-    <button mat-menu-item> 
-      <mat-icon svgIcon="add"/> 
-      <span>Add</span> 
-    </button> 
+    <button mat-menu-item>
+      <mat-icon svgIcon="add"/>
+      <span>Add</span>
+    </button>
 
-    <button mat-menu-item> 
-      <mat-icon svgIcon="edit"/> 
-      <span>Edit</span> 
-    </button> 
+    <button mat-menu-item>
+      <mat-icon svgIcon="edit"/>
+      <span>Edit</span>
+    </button>
 
-    <button mat-menu-item> 
-      <mat-icon svgIcon="delete"/> 
-      <span>Delete</span> 
-    </button> 
+    <button mat-menu-item>
+      <mat-icon svgIcon="delete"/>
+      <span>Delete</span>
+    </button>
 
-  </mat-menu> 
+  </mat-menu>
 
-</div> 
+
+  <app-dashboard-cards></app-dashboard-cards>
+
+</div>
 
 
 

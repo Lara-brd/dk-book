@@ -111,7 +111,14 @@
     Open menu
   </button>
 
-  <mat-menu #menu="matMenu">
+  <!-- En este caso estoy aplicando opciones custom solo a este menu -->
+  <mat-menu #menu="matMenu"
+    class="custom-menu"
+    [overlapTrigger]="menuConfig.overlapTrigger"
+    [xPosition]="menuConfig.xPosition"
+    [yPosition]="menuConfig.yPosition"
+    [backdropClass]="menuConfig.backdropClass"
+    [hasBackdrop]="menuConfig.hasBackdrop">
     <button mat-menu-item>
       <mat-icon>edit</mat-icon>
       <span>Edit</span>
@@ -130,13 +137,3 @@
 </div>
 
 
-<!--
- Reuitlizando constante
- <mat-menu
-  #menu="matMenu"
-  class="custom-menu"
-  [overlapTrigger]="menuConfig.overlapTrigger"
-  [xPosition]="menuConfig.xPosition"
-  [yPosition]="menuConfig.yPosition"
-  [hasBackdrop]="menuConfig.hasBackdrop"
-> -->
