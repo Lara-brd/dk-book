@@ -51,13 +51,14 @@ icon = input<Icons>('home');
 
 **/
 export const ICONS = {
+  add:'add',
   car: 'car',
+  home:'home',
   truck: 'truck',
   electric: 'electric',
   warning: 'warning',
   check: 'check',
   fuel: 'fuel',
-  add: 'add',
   edit: 'edit',
   logo: 'logo',
   email: 'email',
@@ -70,6 +71,11 @@ export const ICONS = {
   more_horiz: 'more-horiz',
   settings: 'settings',
   help: 'help',
+  search:'search',
+  notification:'notification',
+  filter_list:'filter_list',
+  account_circle:'account_circle',
+  menu:'menu'
 } as const satisfies Record<string, string>;
 
 export type icons = (typeof ICONS)[keyof typeof ICONS];

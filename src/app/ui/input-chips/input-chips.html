@@ -1,0 +1,33 @@
+<mat-form-field class="example-chip-list">
+  <mat-label>Vehicle Tags</mat-label>
+
+  <mat-chip-grid #chipGrid aria-label="Enter vehicle tags">
+    @for (tag of vehicleTags(); track tag) {
+      <mat-chip-row
+        (removed)="remove(tag)"
+        [editable]="true"
+        (edited)="edit(tag, $event)"
+        [aria-description]="'press enter to edit ' + tag.name"
+      >
+        <button matChipEdit [attr.aria-label]="'edit ' + tag.name">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        {{ tag.name }}
+
+        <button matChipRemove [attr.aria-label]="'remove ' + tag.name">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    }
+  </mat-chip-grid>
+
+  <input
+    matInput
+    placeholder="New vehicle tag..."
+    [matChipInputFor]="chipGrid"
+    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+    [matChipInputAddOnBlur]="addOnBlur"
+    (matChipInputTokenEnd)="add($event)"
+  />
+</mat-form-field>

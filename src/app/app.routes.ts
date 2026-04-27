@@ -3,6 +3,7 @@ import { Home } from './features/pages/home/home';
 import { ErrorPage } from './features/pages/error-page/error-page';
 import { Chapter3 } from './features/pages/chapter3/chapter3';
 import { Chapter2 } from './features/pages/chapter2/chapter2';
+import { Chapter4 } from './features/pages/chapter4/chapter4';
 
 export const routes: Routes = [
   {
@@ -16,7 +17,8 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo:'chapter3', pathMatch: 'full'},
       { path: 'chapter2', component:Chapter2},
-      { path: 'chapter3', component:Chapter3}
+      { path: 'chapter3', component:Chapter3},
+      { path: 'chapter4', component:Chapter4}
     ]
   },
   {

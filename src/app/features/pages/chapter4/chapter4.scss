@@ -1,0 +1,71 @@
+:host {
+  display: block;
+}
+
+.chapter-shell{
+  padding-top:50px;
+  width: 100%;
+  height: 100vh;
+}
+
+
+.secondary-row{
+  background-color: rgba(0, 0, 0, 0.12);
+  gap:8px;
+  padding-block: 6px;
+  height: auto;
+  min-height: 56px;
+  flex-wrap: wrapp;
+}
+
+
+.search-field{
+  min-width: 220px;
+  max-width: 400px;
+  width: 100%;
+}
+
+
+.header-toolbar{
+  color:#fff;
+  background-color: #8b32b9;
+  mat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.result-hint{
+  font-size: 0.8rem;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.action-btn{
+  white-space: nowrap;
+  gap:4px;
+  mat-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#fff;
+  }
+}
+
+
+.brand{
+  font-size:1.2rem;
+  font-weight: 600;
+  letter-spacing:0.02em;
+  margin-left:4px;
+}
+
+
+mat-divider{
+  margin:20px 0;
+}
+
+.spacer{
+  flex:1 1
+}

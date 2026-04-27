@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { MAT_CARD_CONFIG, MatCardModule } from '@angular/material/card';
-import { MatChipInputEvent, MatChipListboxChange, MatChipsModule } from '@angular/material/chips';
+import { MatChip, MatChipInputEvent, MatChipListboxChange, MatChipsModule } from '@angular/material/chips';
 import { MAT_CARD_CONFIG_OPTIONS } from '../../constants/constants';
 import { NgOptimizedImage } from '@angular/common';
-import { ENTER } from '@angular/cdk/keycodes';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { InputChips } from "../input-chips/input-chips";
 
 @Component({
   selector: 'app-dashboard-cards',
@@ -14,8 +17,10 @@ import { MatDividerModule } from '@angular/material/divider';
     MatChipsModule,
     NgOptimizedImage,
     MatIconModule,
-    MatDividerModule
-  ],
+    MatDividerModule,
+    MatFormFieldModule,
+    InputChips
+],
   providers:[
     {
     provide: MAT_CARD_CONFIG,
@@ -27,6 +32,12 @@ import { MatDividerModule } from '@angular/material/divider';
 })
 export class DashboardCards {
     // set up some test data to display in the cards
+
+  readonly keywords = signal(['SUV', 'Automatic', 'Hybrid', 'Electric']);
+  announcer = inject(LiveAnnouncer);
+
+  readonly addOnBlur = true;
+  readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
   portfolioValue = 123456.78;
   portfolioChange = 1.25;
@@ -58,24 +69,44 @@ export class DashboardCards {
   tags = ['Angular', 'Material'];
 
 
+  // add(event: MatChipInputEvent):void{
+  //   const value = (event.value || '').trim();
+  //   if(value){
+  //     this.keywords.update(k => [...k, value])
+  //   }
+  //   event.chipInput!.clear();
+  // }
 
-  add(event: MatChipInputEvent) {
+  remove(item:string):void{
+    this.keywords.update(k => {
+      const index = k.indexOf(item);
+      if(index < 0){
+        return k;
+      }
+      k.splice(index, 1);
+      this.announcer.announce(`Removed ${item}`);
+      return [...k];
+    });
 
-    const value = (event.value || '').trim();
-    if (value) {
-      this.tags.push(value);
-    }
-    event.chipInput!.clear();
   }
 
 
 
-  remove(tag: string) {
-    const index = this.tags.indexOf(tag);
-    if (index >= 0) {
-      this.tags.splice(index, 1);
-    }
-  }
+
+  // remove(fruit: Fruit): void {
+  //   this.fruits.update(fruits => {
+  //     const index = fruits.indexOf(fruit);
+  //     if (index < 0) {
+  //       return fruits;
+  //     }
+
+  //     fruits.splice(index, 1);
+  //     this.announcer.announce(`Removed ${fruit.name}`);
+  //     return [...fruits];
+  //   });
+  // }
+
+
 
 
 
@@ -83,6 +114,19 @@ export class DashboardCards {
   // Ejemplos chips
   carTags = ['SUV', 'Automatic', 'Hybrid'];
   selectedVehicle = 'sedan';
+
+  removeKeyword(keyword: string) {
+    this.keywords.update(keywords => {
+      const index = keywords.indexOf(keyword);
+      if (index < 0) {
+        return keywords;
+      }
+
+      keywords.splice(index, 1);
+      this.announcer.announce(`removed ${keyword}`);
+      return [...keywords];
+    });
+  }
 
 
 

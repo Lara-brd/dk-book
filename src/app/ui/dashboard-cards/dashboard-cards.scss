@@ -145,5 +145,82 @@ mat-icon {
 
 
 
+:ngDeep
+.status-available {
+  --mdc-chip-elevated-container-color: color-mix(in srgb, green 18%, white 82%);
+  --mdc-chip-label-text-color: #1b5e20;
+}
+
+.status-service {
+  --mdc-chip-elevated-container-color: color-mix(in srgb, orange 18%, white 82%);
+  --mdc-chip-label-text-color: #b26a00;
+}
+
+.status-fuel {
+  --mdc-chip-elevated-container-color: color-mix(in srgb, red 18%, white 82%);
+  --mdc-chip-label-text-color: #b71c1c;
+}
+
+
+
+:host ::ng-deep .status-available.mat-mdc-chip,
+:host ::ng-deep .status-available.mat-mdc-standard-chip {
+  background-color: color-mix(in srgb, green 18%, rgba(255, 255, 255, 0) 82%);
+}
+
+:host ::ng-deep .status-service.mat-mdc-chip,
+:host ::ng-deep .status-service.mat-mdc-standard-chip {
+  background-color: color-mix(in srgb, orange 18%, rgba(255, 255, 255, 0) 82%);
+}
+
+:host ::ng-deep .status-fuel.mat-mdc-chip,
+:host ::ng-deep .status-fuel.mat-mdc-standard-chip {
+  background-color: color-mix(in srgb, red 18%, rgba(255, 255, 255, 0) 82%);
+}
+
+/* texto */
+:host ::ng-deep .status-available .mdc-evolution-chip__text-label {
+  color: #1b5e20;
+}
+
+:host ::ng-deep .status-service .mdc-evolution-chip__text-label {
+  color: #b26a00;
+}
+
+:host ::ng-deep .status-fuel .mdc-evolution-chip__text-label {
+  color: #b71c1c;
+}
+
+/* iconos */
+:host ::ng-deep .status-available .mat-icon,
+:host ::ng-deep .status-available .mdc-evolution-chip__icon--primary,
+:host ::ng-deep .status-available .mdc-evolution-chip__icon--trailing {
+  color: #1b5e20;
+}
+
+:host ::ng-deep .status-service .mat-icon,
+:host ::ng-deep .status-service .mdc-evolution-chip__icon--primary,
+:host ::ng-deep .status-service .mdc-evolution-chip__icon--trailing {
+  color: #b26a00;
+}
+
+:host ::ng-deep .status-fuel .mat-icon,
+:host ::ng-deep .status-fuel .mdc-evolution-chip__icon--primary,
+:host ::ng-deep .status-fuel .mdc-evolution-chip__icon--trailing {
+  color: #b71c1c;
+}
+
+/* capa hover/focus para que no “ensucie” el color */
+:host ::ng-deep .status-available .mat-mdc-chip-focus-overlay {
+  background-color: rgba(27, 94, 32, 0.08);
+}
+
+:host ::ng-deep .status-service .mat-mdc-chip-focus-overlay {
+  background-color: rgba(178, 106, 0, 0.08);
+}
+
+:host ::ng-deep .status-fuel .mat-mdc-chip-focus-overlay {
+  background-color: rgba(183, 28, 28, 0.08);
+}
 
 

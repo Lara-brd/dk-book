@@ -47,14 +47,6 @@
 </div>
 
 
-    <!-- <img
-      ngSrc="/assets/logo.png"
-      alt="Logo"
-      width="160"
-      height="80"
-    /> -->
-
-
 
 <mat-chip-set aria-label="Fish selection">
   <mat-chip>One fish</mat-chip>
@@ -70,34 +62,12 @@
 
 
 
-<mat-chip-grid #chipGrid>
-    @for( tag of tags; track $index){
-    <mat-chip-row (removed)="remove(tag)">
-       {{tag}}
-      <mat-icon matChipRemove >cancel</mat-icon>
-    </mat-chip-row>
-    }
-
-    <input placeholder="Add tag..." [matChipInputFor]="chipGrid"
-          [matChipInputSeparatorKeyCodes]="keysCodes"
-          (matChipInputTokenEnd)="add($event)"
-    />
-
-</mat-chip-grid>
-
-
-
-
 
 <mat-chip-set>
    <mat-chip>
      <mat-icon matChipTrailingIcon [svgIcon]="'person'"/>US Bonds
    </mat-chip>
 </mat-chip-set>
-
-
-
-
 
 
 
@@ -154,132 +124,125 @@
 
    </div>
 
-    <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
 
-    <div class="chip-example">
-      <!-- 3. Selectable chips -->
-      <h3 class="chips-title">3. Selectable chips (single choice)</h3>
-      <mat-chip-listbox aria-label="Vehicle type selection">
-        <mat-chip-option selected>
-          Sedan
-        </mat-chip-option>
+  <div class="chip-example">
+    <!-- 3. Selectable chips -->
+    <h3 class="chips-title">3. Selectable chips (single choice)</h3>
+    <mat-chip-listbox aria-label="Vehicle type selection">
+      <mat-chip-option selected>
+        Sedan
+      </mat-chip-option>
 
-        <mat-chip-option>
-          SUV
-        </mat-chip-option>
+      <mat-chip-option>
+        SUV
+      </mat-chip-option>
 
-        <mat-chip-option>
-          Van
-        </mat-chip-option>
-      </mat-chip-listbox>
+      <mat-chip-option>
+        Van
+      </mat-chip-option>
+    </mat-chip-listbox>
 
-      <p>
-        Common use: filtering or selecting one vehicle category.
-      </p>
-    </div>
+    <p>
+      Common use: filtering or selecting one vehicle category.
+    </p>
+  </div>
 
-    <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
 
-    <div class="chip-example">
-      <!-- 4. Multiple choice chips -->
-      <h3 class="chips-title">4. Selectable chips (multiple choice)</h3>
-      <mat-chip-listbox aria-label="Vehicle features" multiple>
-        <mat-chip-option selected>
-          Automatic
-        </mat-chip-option>
+  <!--
+  usa mat-chip-set para chips simples,
+  mat-chip-listbox para chips seleccionables con mat-chip-option por cada chip,
+  y mat-chip-grid para chips editables cada chip mat-chip-row se puede añadir input.
+  mat-chip-list lo verás sobre todo en ejemplos o código antiguo.
+  -->
 
-        <mat-chip-option selected>
-          Hybrid
-        </mat-chip-option>
+  <div class="chip-example">
+    <!-- 4. Multiple choice chips -->
+    <h3 class="chips-title">4. Selectable chips (multiple choice)</h3>
+    <mat-chip-listbox aria-label="Vehicle features" multiple>
+      <mat-chip-option selected>
+        Automatic
+      </mat-chip-option>
 
-        <mat-chip-option>
-          AWD
-        </mat-chip-option>
-      </mat-chip-listbox>
+      <mat-chip-option selected>
+        Hybrid
+      </mat-chip-option>
 
-      <p>
-        Common use: selecting multiple car features or filters.
-      </p>
-    </div>
+      <mat-chip-option>
+        AWD
+      </mat-chip-option>
+    </mat-chip-listbox>
 
-    <mat-divider></mat-divider>
+    <p>
+      Common use: selecting multiple car features or filters.
+    </p>
+  </div>
 
-
-    <div class="chip-example">
-      <!-- 5. Removable chips -->
-      <h3 class="chips-title">5. Removable chips</h3>
-      <mat-chip-set>
-        <mat-chip removable>
-          SUV
-          <mat-icon matChipRemove>cancel</mat-icon>
-        </mat-chip>
-
-        <mat-chip removable>
-          Hybrid
-          <mat-icon matChipRemove>cancel</mat-icon>
-        </mat-chip>
-
-        <mat-chip removable>
-          Automatic
-          <mat-icon matChipRemove>cancel</mat-icon>
-        </mat-chip>
-      </mat-chip-set>
-
-      <p>
-        Common use: showing active filters that the user can remove quickly.
-      </p>
-    </div>
-
-    <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
 
 
+  <div class="chip-example">
+    <!-- 5. Removable chips -->
+    <h3 class="chips-title">5. Removable chips</h3>
 
-  <!-- 6. Chips in input/grid style -->
-  <h3>6. Input-like chips</h3>
-  <mat-chip-grid #carChipGrid aria-label="Car tags">
-    <mat-chip-row>
-      SUV
-      <mat-icon matChipRemove>cancel</mat-icon>
-    </mat-chip-row>
+    <mat-chip-grid #chipGrid>
+      @for(keyword of keywords(); track keyword){
+        <mat-chip-row (removed)="removeKeyword(keyword)">
+          {{keyword}}
+        <button matChipRemove [attr.aria-label]="'remove ' + keyword">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        </mat-chip-row>
+      }
+    </mat-chip-grid>
 
-    <mat-chip-row>
-      Automatic
-      <mat-icon matChipRemove>cancel</mat-icon>
-    </mat-chip-row>
+    <p>
+      Common use: showing active filters that the user can remove quickly.
+    </p>
+  </div>
 
-    <mat-chip-row>
-      Hybrid
-      <mat-icon matChipRemove>cancel</mat-icon>
-    </mat-chip-row>
-  </mat-chip-grid>
-
-  <p>
-    Common use: editable tag collections, search filters, or vehicle attributes entered by the user.
-  </p>
+  <mat-divider></mat-divider>
 
 
-  <!-- 7. Status chips -->
-  <h3>7. Status chips</h3>
-  <mat-chip-set>
-    <mat-chip class="status-available">
-      <mat-icon svgIcon="check"></mat-icon>
-      Available
-    </mat-chip>
 
-    <mat-chip class="status-service">
-      <mat-icon svgIcon="warning"></mat-icon>
-      In service
-    </mat-chip>
+  <div class="chip-example">
+    <!-- 6. Chips in input/grid style -->
+    <h3 class="chips-title">6. Editable chips</h3>
+    <app-input-chips></app-input-chips>
+    <p>
+      Common use: managing editable vehicle tags such as type, fuel, transmission, status, or onboard features.
+    </p>
+  </div>
 
-    <mat-chip class="status-fuel">
-      <mat-icon svgIcon="fuel"></mat-icon>
-      Low fuel
-    </mat-chip>
-  </mat-chip-set>
 
-  <p>
-    Common use: showing operational status of a vehicle in dashboards or fleet panels.
-  </p>
+
+  <div class="chip-example">
+
+    <!-- 7. Status chips -->
+    <h3 class="chips-title">7. Status chips</h3>
+    <mat-chip-set>
+      <mat-chip class="status-available">
+        <mat-icon svgIcon="check"></mat-icon>
+        Available
+      </mat-chip>
+
+      <mat-chip class="status-service">
+        <mat-icon svgIcon="warning"></mat-icon>
+        In service
+      </mat-chip>
+
+      <mat-chip class="status-fuel">
+        <mat-icon svgIcon="fuel"></mat-icon>
+        Low fuel
+      </mat-chip>
+    </mat-chip-set>
+
+    <p>
+      Common use: showing operational status of a vehicle in dashboards or fleet panels.
+    </p>
+  </div>
+
 
 </div>
 

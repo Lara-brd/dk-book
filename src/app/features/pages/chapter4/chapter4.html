@@ -1,0 +1,89 @@
+
+
+<div class="chapter-shell">
+
+  <mat-toolbar class="header-toolbar">
+    <button matIconButton>
+      <mat-icon svgIcon ="menu"/>
+    </button>
+
+    <span class="brand">Pro-angular Material</span>
+
+    <span class="spacer"></span>
+
+    <button matIconButton
+      [matBadge] = "notificationsCount()"
+      [matBadgeHidden] = "notificationsCount() === 0"
+    >
+    <mat-icon svgIcon="notification"></mat-icon>
+    </button>
+
+    <button matIconButton>
+    <mat-icon svgIcon="account_circle"></mat-icon>
+    </button>
+
+
+  </mat-toolbar>
+
+  <mat-divider></mat-divider>
+
+
+
+  <mat-toolbar class="header-toolbar">
+
+    <!-- row 1 -->
+    <!-- <mat-toolbar-row>
+    </mat-toolbar-row> -->
+
+    <!-- row 2 -->
+     <mat-toolbar-row class="secondary-row">
+      <mat-form-field class="search-field" appearance="outline"
+        subscriptSizing="dynamic">
+        <mat-label>Search</mat-label>
+        <input matInput
+          type="search"
+          (input)="searchTerm.set(
+            $any($event.target).value)"
+            placeholder="Search items..."
+            [value] ="searchTerm()"
+          >
+        <mat-icon matSuffix svgIcon="search"/>
+      </mat-form-field>
+
+      <span class="spacer"></span>
+      <span class="result-hint">
+        {{resultHint()}}
+      </span>
+      <button matButton="filled" class="action-btn">
+        <mat-icon svgIcon="filter_list"/>
+        Filter
+      </button>
+
+      <button matButton="filled" class="action-btn">
+        <mat-icon svgIcon="add">
+        </mat-icon>
+        New Item
+      </button>
+
+      <button matButton="outlined"
+      (click)="clearSearch()">
+      Clear search
+      </button>
+
+
+
+     </mat-toolbar-row>
+
+
+
+  </mat-toolbar>
+
+
+
+
+
+
+
+
+
+</div>
