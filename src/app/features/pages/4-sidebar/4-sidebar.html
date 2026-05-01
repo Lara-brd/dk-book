@@ -1,0 +1,22 @@
+<mat-sidenav-container class="main-container">
+  <mat-sidenav
+    #sidenav mode="side" position="end" opened
+    class="side-nav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home/4sidebar/one">
+        <mat-icon matListItemIcon [svgIcon]="'home'"/>
+        <span matListItemTitle>Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/home/4sidebar/two">
+        <mat-icon matListItemIcon [svgIcon]="'accounts'"/>
+        <span matListItemTitle>Accounts</span>
+      </a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

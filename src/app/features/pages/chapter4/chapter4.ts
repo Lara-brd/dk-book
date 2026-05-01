@@ -6,6 +6,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDivider } from "@angular/material/divider";
 import { MatInput } from "@angular/material/input";
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-chapter4',
@@ -16,7 +17,8 @@ import { MatInput } from "@angular/material/input";
     MatBadgeModule,
     MatFormFieldModule,
     MatDivider,
-    MatInput
+    MatInput,
+    MatSidenavModule
 ],
   templateUrl: './chapter4.html',
   styleUrl: './chapter4.scss',

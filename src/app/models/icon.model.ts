@@ -75,7 +75,8 @@ export const ICONS = {
   notification:'notification',
   filter_list:'filter_list',
   account_circle:'account_circle',
-  menu:'menu'
+  menu:'menu',
+  accounts:'accounts'
 } as const satisfies Record<string, string>;
 
 export type icons = (typeof ICONS)[keyof typeof ICONS];

@@ -1,0 +1,220 @@
+
+
+
+
+<div class="shell">
+
+  <mat-sidenav-container class="s-one">
+
+    <mat-sidenav-content class="main-content">
+
+      <!-- este bootón solo abre -- cuando haces click una vez abierto y se cierra es porque estas haciendo click sobre el backdrop y el backdrop es el que cierra -->
+      <button mat-raised-button color="primary" (click)="endNav.open()">
+        Open notifications
+      </button>
+
+
+      @if (hasUnreadNotifications()) {
+        <p>You have {{ unreadCount() }} unread notifications</p>
+      }
+
+    </mat-sidenav-content>
+
+    <!-- openedChange actualiza el estado del sidebar -->
+    <mat-sidenav
+      class="end-nav"
+      position="end"
+      mode="over"
+      #endNav
+      (openedChange)="endOpen.set($event)"
+    >
+      <div class="end-nav-header">
+        <span class="end-nav-title">Notifications</span>
+
+        <button mat-icon-button (click)="endNav.close()" aria-label="Close notifications">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+      <div class="notif-list" role="list">
+        @for (n of notifications(); track n.id) {
+          <div
+            class="notif-item"
+            [class.unread]="!n.read"
+            role="listitem"
+            (click)="markRead(n.id)"
+            [attr.aria-label]="n.title + ': ' + n.message"
+          >
+            <div class="notif-icon-wrap" aria-hidden="true">
+              <mat-icon>{{ n.icon }}</mat-icon>
+            </div>
+
+            <div class="notif-body">
+              <div class="notif-title">{{ n.title }}</div>
+              <div class="notif-message">{{ n.message }}</div>
+              <div class="notif-time">{{ n.time }}</div>
+            </div>
+
+            @if (!n.read) {
+              <div class="unread-dot" aria-label="Unread"></div>
+            }
+          </div>
+        }
+      </div>
+    </mat-sidenav>
+
+  </mat-sidenav-container>
+
+
+
+  <div class="s-two">
+    <mat-sidenav-container class="layout-container">
+
+      <mat-sidenav
+        class="left-sidebar"
+        position="start"
+        mode="side"
+        [opened]="true"
+      >
+        <div class="sidebar-header">
+          <h3>Index</h3>
+        </div>
+
+        <nav class="sidebar-index">
+          <a href="#introduction">
+            <mat-icon>article</mat-icon>
+            Introduction
+          </a>
+
+          <a href="#planning">
+            <mat-icon>event_note</mat-icon>
+            Planning
+          </a>
+
+          <a href="#orders">
+            <mat-icon>assignment</mat-icon>
+            Work orders
+          </a>
+
+          <a href="#vehicles">
+            <mat-icon>local_shipping</mat-icon>
+            Vehicle assignment
+          </a>
+
+          <a href="#summary">
+            <mat-icon>summarize</mat-icon>
+            Summary
+          </a>
+        </nav>
+      </mat-sidenav>
+
+      <mat-sidenav-content class="main-content">
+
+        <section id="introduction" class="content-section">
+          <h1>Introduction</h1>
+          <p>
+            This section introduces the planning dashboard and explains the purpose of the page.
+          </p>
+        </section>
+
+        <section id="planning" class="content-section">
+          <h1>Planning</h1>
+          <p>
+            This section describes how the planning process works and how users can organize tasks.
+          </p>
+        </section>
+
+        <section id="orders" class="content-section">
+          <h1>Work orders</h1>
+          <p>
+            This section explains how work orders are displayed, reviewed, and managed.
+          </p>
+        </section>
+
+        <section id="vehicles" class="content-section">
+          <h1>Vehicle assignment</h1>
+          <p>
+            This section explains how orders can be assigned to available vehicles.
+          </p>
+        </section>
+
+        <section id="summary" class="content-section">
+          <h1>Summary</h1>
+          <p>
+            This section provides a final overview of the current planning state.
+          </p>
+        </section>
+
+      </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+
+
+  </div>
+
+
+  <div class="s-three">
+
+    <mat-sidenav-container class="layout-container">
+
+      <mat-sidenav
+        class="filters-sidebar"
+        position="start"
+        mode="push"
+        #filtersNav
+        (openedChange)="filtersOpen.set($event)"
+      >
+        <div class="sidebar-header">
+          <h3>Filters</h3>
+
+          <button mat-icon-button (click)="filtersNav.close()" aria-label="Close filters" class="close-filter-btn">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+
+        <div class="filters-content">
+          <button mat-button>Today</button>
+          <button mat-button>This week</button>
+          <button mat-button>This month</button>
+          <button mat-button>Pending orders</button>
+          <button mat-button>Assigned orders</button>
+        </div>
+      </mat-sidenav>
+
+      <mat-sidenav-content class="main-content">
+
+
+        <section class="content-card">
+          <h1>Planning dashboard</h1>
+          <p>
+            When the sidebar opens, the main content is pushed to the right.
+          </p>
+        </section>
+
+        <button mat-raised-button color="primary" (click)="filtersNav.toggle()">
+          {{ filtersOpen() ? 'Close filters' : 'Open filters' }}
+        </button>
+
+      </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+  </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
